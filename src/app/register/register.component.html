@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="card border-primary">
+                <div class="card-header bg-primary text-light">
+                    Register
+                </div>
+                <div class="card-body">
+                    <form #registerForm="ngForm" (ngSubmit)="register(member)">
+                        <div class="form-group">
+                            <label for="">Username</label>
+                            <input  #uname="ngModel" required minlength="4" type="text" [(ngModel)]="member.username" name="username" class="form-control">
+                            <div class="alert-danger" [hidden]="uname.pristine||uname.valid">Username required at least 4 characters</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input  #pwd="ngModel" required minlength="4" maxlength="8" type="password" [(ngModel)]="member.password" name="password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input  #email="ngModel" required type="email" [(ngModel)]="member.email" name="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">DOB</label>
+                            <input  #dob="ngModel" required type="date" [(ngModel)]="member.dob" name="dob" class="form-control">
+                        </div>
+                        <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary">Register</button>
+                        <div>
+                            <div>form: {{registerForm.valid}}</div>
+                            <div>uname: {{uname.valid}}</div>
+                            <div>pwd:{{pwd.valid}}</div>
+                            <div>email: {{email.valid}}</div>
+                            <div>dob: {{dob.valid}}</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

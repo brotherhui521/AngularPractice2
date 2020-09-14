@@ -1,0 +1,14 @@
+<p>todo works!</p>
+
+<div class="container">
+    <div class="row">
+        <input [(ngModel)]="todo" type="text" name="todoItem" id="">
+        <button (click)="addTodo()" class="btn btn-primary">Add</button>
+    </div>
+    <div class="row">
+        <ol>
+            <!-- scope question here!! ask on Monday -->
+            <li *ngFor="let todo of todos">{{todo}} <button class="btn btn-danger mr-auto" (click)="removeTodo(todo)">x</button></li>
+        </ol>
+    </div>
+</div>

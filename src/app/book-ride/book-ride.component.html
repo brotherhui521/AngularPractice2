@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            {{rideDetails | extractedField:'id'}}
+            {{10.234|currency:
+            'EUR': 'symbol':'4.3-6'}}
+
+            {{[1,2,3,4,5,6,7]|slice: start:end}}
+            <div class="card">
+                <div class="card-header bg-primary text-light">
+                    Book a ride
+                </div>
+                <div style="padding:0" class="card-body">
+                    <p>This is a car booking app. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ex
+                        debitis nemo modi doloribus, nostrum exercitationem rem quasi fugiat tempora atque
+                        necessitatibus delectus eaque ratione, aut officiis optio, error repellendus.</p>
+                    <div class="row">
+                        <button (click)="toggleTable()" class="btn btn-primary col-4 offset-4">SHow all rides</button>
+                    </div>
+                    <br>
+                    <br>
+
+                    <div   class="text-center" name="tableView" *ngIf="showTable==true">
+                        <div>
+                            <button class="btn btn-primary" (click)="filterBy='to'">To Gotham</button>&nbsp;
+                            <button class="btn btn-primary" (click)="filterBy='from'">From Gotham</button>&nbsp;
+                            <button class="btn btn-primary" (click)="filterBy='others'">Others</button>&nbsp;
+                            <button class="btn btn-primary" (click)="filterBy='all'">All</button>&nbsp;
+                        </div>
+                        <div style="padding:20">
+                            <p class="text-primary">Please select a ride</p>
+                        </div>
+                        <table class="table table-sm table-bordered text-primary table-hover">
+                            <thead class="bg-primary text-light">
+                                <tr>
+                                    <th>Start Point</th>
+                                    <th>End Point</th>
+                                    <th>seat available</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr (click)="selectedRide=ride"
+                                    *ngFor="let ride of rideDetails | filterRide: filterBy ">
+                                    <td>{{ride.pickUp}}</td>
+                                    <td>{{ride.destination}}</td>
+                                    <td>{{ride.seatsLeft}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div>
+                        <app-ride-details (rideBooked)="handleBookRide($event)" *ngIf="selectedRide" [ride]="selectedRide"></app-ride-details>
+                    </div>
+                    <div>
+                        <button (click)="goToOfferRide()" class="btn btn-primary col-4 offset-4">Offer a ride</button>
+                    </div>
+                    <br>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

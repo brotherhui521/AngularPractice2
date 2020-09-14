@@ -1,0 +1,11 @@
+<h3>Pick a color</h3>
+
+<input type="radio" [(ngModel)]="highLightColor" name="color" value="green" id="green">
+<label for="green">green</label>&nbsp;
+<input type="radio" [(ngModel)]="highLightColor" name="color" value="red" id="red">
+<label for="red">red</label>&nbsp;
+<input type="radio" [(ngModel)]="highLightColor" name="color" value="blue" id="blue">
+<label for="blue">blue</label>
+
+<h5 style="background-color: teal;" appHightlight [appHighlight]="highLightColor">Text to be highlighted on hover</h5>
+<h2 >{{highLightColor}}</h2>

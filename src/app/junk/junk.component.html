@@ -1,0 +1,14 @@
+<p>junk works!</p>
+<input [(ngModel)]="capturedInput" >
+<input [(ngModel)]="secondVal">
+<button >Capture Input</button>
+
+
+<h5>Capture input is : {{capturedInput}}</h5>
+<h5>Second box is {{secondVal}}</h5>
+<br>
+<h5 *ngFor="let book of books">{{book}}</h5>
+
+
+<button (click)="goToBooks()" class="btn btn-primary">Go to books</button>
+

@@ -1,0 +1,9 @@
+<div class="jumbotron">
+    <h5>Outer Component: {{outerVariable}}</h5>
+    <button (click)="outerVariable=outerVariable+1" class="btn btn-primary">Increment OuterVariable</button>
+    
+    <app-inner [innerVariable]="outerVariable" (innerEvent)="dateFromInner=$event" [timeFromOuter]="tempVariable"></app-inner>
+    <h5>Outer component data value received from inner component: <span class="badge-primary">{{dateFromInner}}</span></h5>
+
+    <button class="btn btn-primary" (click)="tempVariable=dateFromInner">click to pass time to inner</button>
+</div>

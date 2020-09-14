@@ -1,0 +1,37 @@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-4 offset-4">
+            <div class="card">
+                <div class="card-header bg-dark text-light">Login Form</div>
+                <div class="card-body">
+                    <form *ngIf="validated==false" action="">
+                        <div class="form-group">
+                            <label for="">Username</label>
+                            <input [(ngModel)]="user.username" class="form-control" type="text" name="username" id="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input [(ngModel)]="user.password" class="form-control" type="password" name="password" id="">
+                        </div>
+                        <button (click)="authorize()" class="btn btn-primary">Log in</button>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    {{message}}
+                    <button (click)="logoff()" class="btn btn-warning" *ngIf="validated==true">Log off</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+<button [ngClass]="{'btn':true,'btn-warning':true}"> Test</button>
+<p [ngStyle]="{color: greenColor, 'background-color':'black'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, officiis rem nemo exercitationem ipsa voluptas temporibus tempora minima eos inventore eum, ex quod nulla sint illo quaerat molestiae similique. Minima.</p>
+<!-- books variables need to be a collection and available on the ts file, 
+the book vaiable only has varibale within the element which *ngFor is marked.
+book variable will render one by one
+-->

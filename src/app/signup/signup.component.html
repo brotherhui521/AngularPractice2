@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card border-primary">
+                <div class="card-header bg-primary text-light">
+                    sign up form using Model form
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="signupForm" action="" (ngSubmit)="signup()">
+                        <div class="form-group">
+                            <label for="">First Name</label>
+                            <input formControlName="firstName" type="text" class="form-control">
+                            <div class="text-danger" *ngIf="signupForm.controls.firstName.errors&&signupForm.controls.firstName.touched">
+                                <div *ngIf="signupForm.controls.firstName.errors.required">First Name is required</div>
+                                <div *ngIf="signupForm.controls.firstName.errors.titlecased">First letter should be uppercase</div>
+                                <div *ngIf="signupForm.controls.firstName.errors.minlength">Minimun of 4 letters</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Last Name</label>
+                            <input class="text-danger"  formControlName="lastName" type="text" class="form-control">
+                            <div class="text-danger" [hidden]="signupForm.controls.lastName.valid||signupForm.controls.lastName.untouched">Letters only. at least one</div>
+                        </div>
+                        <div class="form-group">
+                            <fieldset formGroupName="address">
+                                <div class="form-group">
+                                    <label for="">Street</label>
+                                    <input formControlName="street" type="text" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Zip</label>
+                                    <input formControlName="zip" type="number" lass="form-control">
+                                    <div class="text-danger" [hidden]="signupForm.controls.address.controls.zip.valid">{{signupForm.controls.address.controls.zip.errors|json}} </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">City</label>
+                                    <input formControlName="city" type="text" class="form-control">
+                                </div>
+                            </fieldset>
+                        </div>
+                        <button [disabled]="signupForm.invalid" type="submit" class="btn btn-primary">Sign up</button>
+                    </form>
+                    <div>
+                        <div>{{signupForm.value|json}}</div>
+                        <div>{{signupForm.valid}}</div>
+                        <div>{{signupForm.controls.firstName.valid}}</div>
+                        <div>{{signupForm.controls.address.controls.zip.valid}}</div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

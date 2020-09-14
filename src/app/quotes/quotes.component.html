@@ -1,0 +1,13 @@
+<h2>Quotes game</h2>
+
+<select [(ngModel)]="selectedQuote">
+    <option *ngFor="let quote of quotesArray" value="{{quote}}">{{quote}}</option>
+</select>
+<br>
+<br>
+<label for="repeat">Enter the number of times to repeat: </label>
+<input type="number" [(ngModel)]="repeatTimes">
+
+<div class="min-height-20"></div>
+<h6>----------Repeated Quote-------------</h6>
+<p *appRepeatQuote="repeatTimes">{{selectedQuote}}</p>

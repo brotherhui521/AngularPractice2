@@ -1,0 +1,37 @@
+<p>{{ride|json}}</p>
+
+<table class="table text-primary table-sm table-bordered">
+    <thead class="bg-primary text-light">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>car</th>
+            <th>seatsleft</th>
+            <th>pickup</th>
+            <th>destination</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>{{ride.id}}</td>
+            <td>{{ride.name}}</td>
+            <td>{{ride.car}}</td>
+            <td>{{ride.seatsLeft}}</td>
+            <td>{{ride.pickUp}}</td>
+            <td>{{ride.destination}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="text-center">
+    <button *ngIf="!booked" (click)="bookRide()" class="btn btn-warning">Book</button> &nbsp;
+    <p *ngIf="booked" class="text-primary">Your ride is succeessfully booked, ride id is: {{ride.id}}</p>
+    <button *ngIf="booked" (click)="cancelRide()" class="btn btn-danger">Cancel this booking</button>
+</div>
+<br>
+<br>
+
+
+
